@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white p-4 shadow-md flex justify-between items-center">
+        <h1 class="text-xl font-bold">Foodie Express</h1>
+        <div>
+            <a href="#" class="mx-2 text-gray-700 hover:text-yellow-500">Home</a>
+            <a href="#menu" class="mx-2 text-gray-700 hover:text-yellow-500">Menu</a>
+            <a href="#" class="mx-2 text-gray-700 hover:text-yellow-500" id="cart-btn">Cart (<span id="cart-count">0</span>)</a>
+            <a href="#" class="mx-2 text-gray-700 hover:text-yellow-500">Login</a>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header class="text-center py-16 bg-cover bg-center relative" style="background-image: url('https://source.unsplash.com/1600x900/?food');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <h2 class="relative text-4xl font-bold text-white">Order Your Favorite Food Anytime</h2>
+        <p class="relative text-lg text-white mt-2">Fast delivery at your doorstep</p>
+        <button class="relative mt-4 px-6 py-2 bg-yellow-500 text-white rounded-full shadow-lg hover:bg-yellow-600">Order Now</button>
+    </header>
+    
+    <!-- Featured Restaurants -->
+    <section id="menu" class="p-8">
+        <h2 class="text-2xl font-bold mb-4 text-center">Popular Restaurants</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-4 shadow-lg rounded-lg">
+                <img src="https://source.unsplash.com/300x200/?restaurant" alt="Restaurant" class="w-full h-40 object-cover rounded">
+                <h3 class="mt-2 font-bold text-lg">Gourmet Delights</h3>
+                <p class="text-gray-600">Top-rated meals, fast delivery</p>
+                <button class="mt-2 px-4 py-1 bg-yellow-500 text-white rounded-full text-sm add-to-cart" data-name="Gourmet Delights" data-price="10">Add to Cart</button>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg">
+                <img src="https://source.unsplash.com/300x200/?cafe" alt="Cafe" class="w-full h-40 object-cover rounded">
+                <h3 class="mt-2 font-bold text-lg">Urban Bites</h3>
+                <p class="text-gray-600">Healthy & delicious meals</p>
+                <button class="mt-2 px-4 py-1 bg-yellow-500 text-white rounded-full text-sm add-to-cart" data-name="Urban Bites" data-price="8">Add to Cart</button>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg">
+                <img src="https://source.unsplash.com/300x200/?pizza" alt="Pizzeria" class="w-full h-40 object-cover rounded">
+                <h3 class="mt-2 font-bold text-lg">Pizza Heaven</h3>
+                <p class="text-gray-600">The best pizzas in town</p>
+                <button class="mt-2 px-4 py-1 bg-yellow-500 text-white rounded-full text-sm add-to-cart" data-name="Pizza Heaven" data-price="12">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-center p-4 mt-8">
+        <p>&copy; 2025 Foodie Express. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let cartCount = 0;
+        const cartCounter = document.getElementById('cart-count');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                cartCount++;
+                cartCounter.textContent = cartCount;
+                alert(`${button.dataset.name} added to cart!`);
+            });
+        });
+    </script>
+</body>
+</html>
